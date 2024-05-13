@@ -1,7 +1,20 @@
+import { Box } from "@mui/material"
+import EndedChats from "../components/EndedChats"
 
 const EndedChatsList = () => {
   return (
-    <div>EndedChatsList</div>
+  
+    <Box sx={{display: "flex", flexDirection: "column", gap: "24px", padding: "24px"}}>
+      <EndedChats />
+      <EndedChats />
+      <EndedChats />
+      <EndedChats />
+      <EndedChats />
+      <EndedChats />
+      <EndedChats />
+      <EndedChats />
+    </Box>
+    
   )
 }
 

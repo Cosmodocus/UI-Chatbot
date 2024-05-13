@@ -1,6 +1,5 @@
 import { Avatar, Box, Typography } from "@mui/material"
 import ReX from "../assets/ReX.png"
-import CommentRoundedIcon from '@mui/icons-material/CommentRounded';
 import { useTheme } from "@emotion/react";
 const EndedChats = () => {
   const theme = useTheme()
@@ -21,7 +20,6 @@ const EndedChats = () => {
           <Typography variant="h4" sx={{fontWeight: 700, fontSize: 18}}>ReX <span>— Dec 09, 2022</span></Typography>
           <Typography variant="h6" sx={{fontWeight: 500, fontSize: 14, color: theme.palette.grey[700]}}>Hello Andrew! I&apos;m Rex</Typography>
         </Box>
-        <CommentRoundedIcon sx={{color: theme.palette.primary.main}}/>
       </Box>
     
   )
