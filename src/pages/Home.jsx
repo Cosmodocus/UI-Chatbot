@@ -14,7 +14,7 @@ const Home = () => {
       <ActiveChats />
       <Box sx={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
         <Typography variant="h2" sx={{fontWeight: 700, width: 380, height:24, fontSize: 20, lineHeight:"24px"}}>Ended Chats</Typography>
-        <Link to="/endedchats">
+        <Link to="/endedchats" style={{ textDecoration: "none" }}>
           <Typography sx={{width:184, height: 22, fontSize: 16, textDecoration: "none", underline: "none", color: theme.palette.primary.main, textAlign: "right", fontWeight: 500}}>See All</Typography>
         </Link>
       </Box>
