@@ -13,8 +13,8 @@ const App = () => {
   return (
   
     <Box sx={{background: theme.palette.grey[50] }}>
-      <Navigation />
       <Router>
+      <Navigation />
         <Routes>
           <Route path="/" element={<Start />} />
           <Route path="/home" element={<Home />} />
