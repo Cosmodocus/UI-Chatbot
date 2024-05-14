@@ -14,7 +14,7 @@ const ActiveChats = () => {
           alignItems: "center",
           justifyContent: "center",
           gap: 2,
-          borderRadius: 32,
+          borderRadius: "32px",
           backgroundColor: theme.palette.common.white,
           padding: "24px",
         }}
@@ -27,7 +27,6 @@ const ActiveChats = () => {
           sx={{
             display: "flex",
             flexDirection: "column",
-            gap: 1,
             backgroundColor: theme.palette.common.white,
           }}
         >

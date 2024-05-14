@@ -14,6 +14,8 @@ const Start = () => {
         justifyContent: "center",
         padding: "24px",
         gap: "48px",
+        textAlign: "center",
+        height: "100vh",
       }}
     >
       <Box
@@ -55,38 +57,42 @@ const Start = () => {
         >
           Welcome, Andrew! 👋
         </Typography>
-        <Typography
-          variant="h2"
-          sx={{fontSize: "24px", fontWeight: 700, lineHeight: "28px"}}
-        >
-          Receive Career Help from ReX!
-        </Typography>
-        <Typography
-          variant="h3"
-          sx={{fontSize: "18px", fontWeight: 500, lineHeight: "21px"}}
-        >
-          Start a Conversation with ReX right now!
-        </Typography>
-        <Link to="/home">
-          <Button
-            sx={{
-              width: "348px",
-              height: "22px",
-              padding: "28px 26px",
-              gap: "10px",
-              borderRadius: "100px",
-              backgroundColor: theme.palette.primary.main, // Use primary color from theme
-              color: theme.palette.common.white,
-              fontSize: "16px",
-              textTransform: "none",
-              "&:hover": {
-                backgroundColor: theme.palette.primary.dark, // Use dark color from theme
-              },
-            }}
-          >
-            Start Chat with ReX
-          </Button>
-        </Link>
+        <Box sx={{display: "flex", flexDirection: "column", gap: "32px"}}>
+          <Box sx={{display: "flex", flexDirection: "column", gap: "12px"}}>
+            <Typography
+              variant="h2"
+              sx={{fontSize: "24px", fontWeight: 700, lineHeight: "28px"}}
+            >
+              Receive Career Help from ReX!
+            </Typography>
+            <Typography
+              variant="h3"
+              sx={{fontSize: "18px", fontWeight: 500, lineHeight: "21px"}}
+            >
+              Start a Conversation with ReX right now!
+            </Typography>
+          </Box>
+          <Link to="/home">
+            <Button
+              sx={{
+                width: "348px",
+                height: "22px",
+                padding: "28px 26px",
+                gap: "10px",
+                borderRadius: "100px",
+                backgroundColor: theme.palette.primary.main, // Use primary color from theme
+                color: theme.palette.common.white,
+                fontSize: "16px",
+                textTransform: "none",
+                "&:hover": {
+                  backgroundColor: theme.palette.primary.dark, // Use dark color from theme
+                },
+              }}
+            >
+              Start Chat with ReX
+            </Button>
+          </Link>
+        </Box>
       </Box>
     </Box>
   );
