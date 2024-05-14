@@ -11,32 +11,57 @@ import Rex from "../assets/ReX.png";
 import {useState} from "react";
 import {useTheme} from "@emotion/react";
 import SendIcon from "@mui/icons-material/Send";
+import {processMessageToAI} from "../api/api";
 
 const Chats = () => {
   const theme = useTheme();
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([
+    {
+      message: "Hello, I'm Rex. How can I help assist you today?",
+      sender: "ai",
+    },
+  ]);
   const [input, setInput] = useState("");
 
   const handleInputChange = (e) => {
     setInput(e.target.value);
   };
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (input.trim() !== "") {
-      setMessages([...messages, {text: input, sender: "user"}]);
-      setInput("");
+      try {
+        const response = await processMessageToAI(input);
+        setMessages([
+          ...messages,
+          {message: input, sender: "user"},
+          {message: response, sender: "ai"},
+        ]);
+        setInput("");
+      } catch (error) {
+        console.log("Error in handleSendMessage:", error);
+        throw error;
+      }
     }
   };
 
-  
   return (
-    <Paper elevation={0} sx={{height:"90vh", padding: "24px", display: "flex", flexDirection: "column", gap: "48px", justifyContent: "space-between", }}>
-      <List sx={{ display: "flex", flexDirection: "column", gap: "16px",  }}>
+    <Paper
+      elevation={0}
+      sx={{
+        height: "90vh",
+        padding: "24px",
+        display: "flex",
+        flexDirection: "column",
+        gap: "48px",
+        justifyContent: "space-between",
+      }}
+    >
+      <List sx={{display: "flex", flexDirection: "column", gap: "16px"}}>
         <Avatar
           src={Rex}
-          sx={{width: 105, height: 105, }}
+          sx={{width: 105, height: 105}}
         />
-        <ListItem
+        {/* <ListItem
           sx={{
             fontWeight: 500,
             fontSize: "18px",
@@ -46,7 +71,6 @@ const Chats = () => {
             py: "16px",
             px: "24px",
             borderRadius: "8px",
-            
           }}
         >
           Hello Andrew! I&apos;m ReX 😁
@@ -64,23 +88,29 @@ const Chats = () => {
           }}
         >
           What aspect of your career would you like guidance on?
-        </ListItem>
+        </ListItem> */}
         {messages.map((message, index) => (
           <ListItem
             key={index}
             sx={{
-              alignSelf: "flex-end",
+              alignSelf: message.sender === "user" ? "flex-end" : "flex-start",
               fontWeight: 500,
               fontSize: "18px",
               width: "300px",
               py: "16px",
               px: "24px",
               borderRadius: "8px",
-              color: theme.palette.common.white,
-              backgroundColor: theme.palette.primary.main,
+              color:
+                message.sender === "user"
+                  ? theme.palette.common.white
+                  : theme.palette.grey[900],
+              backgroundColor:
+                message.sender === "user"
+                  ? theme.palette.primary.main
+                  : theme.palette.grey[100],
             }}
           >
-            {message.text}
+            {message.message}
           </ListItem>
         ))}
       </List>
